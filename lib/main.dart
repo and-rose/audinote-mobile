@@ -1,5 +1,9 @@
+import 'package:audinote_mobile/screens/profile.dart';
+import 'package:audinote_mobile/screens/tracks.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,42 +35,36 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   int currentPageIndex = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      currentPageIndex = index;
-    });
-  }
+  final List<Map<String, dynamic>> screens = [
+    {
+      'title': 'Home',
+      'widget': const HomeScreen(),
+      'actions': <Widget>[],
+    },
+    {
+      'title': 'Tracks',
+      'widget': const TracksScreen(),
+      'actions': <Widget>[],
+    },
+    {
+      'title': 'Profile',
+      'widget': const ProfileScreen(),
+      'actions': <Widget>[],
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(screens[currentPageIndex]['title']),
+        actions: screens[currentPageIndex]['actions'],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
+      body: screens[currentPageIndex]['widget'],
       bottomNavigationBar: NavigationBar(
+        height: 60,
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
@@ -93,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => {debugPrint("FAB pressed")},
         tooltip: 'Increment',
         shape: const CircleBorder(),
         child: const Icon(
