@@ -1,7 +1,6 @@
 import 'package:audinote_mobile/screens/profile.dart';
 import 'package:audinote_mobile/screens/tracks.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'screens/home.dart';
 
@@ -42,16 +41,36 @@ class _MyHomePageState extends State<MyHomePage> {
       'title': 'Home',
       'widget': const HomeScreen(),
       'actions': <Widget>[],
+      'fab': null,
     },
     {
       'title': 'Tracks',
       'widget': const TracksScreen(),
-      'actions': <Widget>[],
+      'actions': <Widget>[
+        IconButton(
+          icon: const Icon(Icons.search),
+          onPressed: () {},
+        ),
+      ],
+      'fab': FloatingActionButton(
+        onPressed: () => {debugPrint("FAB pressed")},
+        tooltip: 'Increment',
+        shape: const CircleBorder(),
+        child: const Icon(
+          Icons.file_upload_outlined,
+        ),
+      ),
     },
     {
       'title': 'Profile',
       'widget': const ProfileScreen(),
-      'actions': <Widget>[],
+      'actions': <Widget>[
+        IconButton(
+          icon: const Icon(Icons.edit),
+          onPressed: () {},
+        ),
+      ],
+      'fab': null,
     }
   ];
 
@@ -64,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: screens[currentPageIndex]['widget'],
       bottomNavigationBar: NavigationBar(
-        height: 60,
+        height: 70,
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
@@ -90,14 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {debugPrint("FAB pressed")},
-        tooltip: 'Increment',
-        shape: const CircleBorder(),
-        child: const Icon(
-          Icons.file_upload_outlined,
-        ),
-      ),
+      floatingActionButton: screens[currentPageIndex]['fab'],
     );
   }
 }
