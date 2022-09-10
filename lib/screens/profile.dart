@@ -56,6 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ? (ElevatedButton(
                           onPressed: () {
                             debugPrint(loggedIn.toString());
+                            Navigator.pushNamed(context, '/login');
                             setState(() {
                               loggedIn = false;
                             });

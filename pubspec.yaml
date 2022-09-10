@@ -39,6 +39,7 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   flutter_svg: ^1.1.5
   percent_indicator: ^4.2.2
+  flutter_login: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
     - assets/ssscribble.png
     - assets/wwwhirl.png
     - assets/audinote-logo.png
+    - assets/audinote-icon.png
     - assets/uuundulate.png
   fonts:
     - family: Newake

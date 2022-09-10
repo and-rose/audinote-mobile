@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/RecentTrackCard.dart';
+import '../widgets/recentTrackCard.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
