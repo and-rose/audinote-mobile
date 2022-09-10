@@ -18,6 +18,7 @@ class TracksScreen extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          surfaceTintColor: Theme.of(context).colorScheme.background,
           flexibleSpace: FlexibleSpaceBar(
             background: const Image(
               image: AssetImage("assets/wwwhirl.png"),
