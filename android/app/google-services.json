@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "212892198362",
+    "firebase_url": "https://audinote-178ed-default-rtdb.firebaseio.com",
+    "project_id": "audinote-178ed",
+    "storage_bucket": "audinote-178ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212892198362:android:cbd336b30ce050e57f8ce3",
+        "android_client_info": {
+          "package_name": "com.example.audinote_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212892198362-sokscrnfoaadd5451d8kaulqirfpb4ki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4wSfw-3QqOBvVF075xwrOyZtCjYIL1Sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212892198362-sokscrnfoaadd5451d8kaulqirfpb4ki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
