@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
             ),
             titlePadding: const EdgeInsetsDirectional.only(
               start: 0.0,
-              bottom: 10.0,
+              bottom: 20.0,
             ),
           ),
           actions: <Widget>[

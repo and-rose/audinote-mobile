@@ -15,7 +15,7 @@ class RecentTrackCard extends StatelessWidget {
             customBorder: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            child: Center(child: Text('Recent Track'))),
+            child: const Center(child: Text('Recent Track'))),
       ),
     );
   }
