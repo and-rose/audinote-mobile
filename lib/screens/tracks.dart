@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'dart:math';
 
 final List<Map<String, dynamic>> tracks = [
   {
@@ -17,11 +19,16 @@ class TracksScreen extends StatelessWidget {
       slivers: [
         SliverAppBar(
           flexibleSpace: FlexibleSpaceBar(
+            background: const Image(
+              image: AssetImage("assets/wwwhirl.png"),
+              alignment: FractionalOffset(0.0, 0.7),
+              fit: BoxFit.cover,
+            ),
             titlePadding: const EdgeInsetsDirectional.only(
               start: 16,
               bottom: 5,
             ),
-            title: Text("Tracks", style: Theme.of(context).textTheme.headline6),
+            title: Text("Tracks", style: Theme.of(context).textTheme.headline5),
           ),
           actions: <Widget>[
             IconButton(
@@ -35,13 +42,26 @@ class TracksScreen extends StatelessWidget {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.music_note),
-                title: Text(tracks[0]['title']),
-                subtitle: Text(tracks[0]['artist']),
-                trailing: Text(tracks[0]['duration']),
-              );
+              return Column(children: [
+                ListTile(
+                  onTap: () {},
+                  leading: CircularPercentIndicator(
+                    backgroundWidth: -1.0,
+                    progressColor: Theme.of(context).colorScheme.primary,
+                    radius: 18.0,
+                    lineWidth: 4.0,
+                    percent: Random().nextDouble(),
+                    center: Text(
+                      "50%",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ),
+                  title: Text(tracks[0]['title']),
+                  subtitle: Text(tracks[0]['artist']),
+                  trailing: Text(tracks[0]['duration']),
+                ),
+                const Divider(height: 0)
+              ]);
             },
             childCount: 20,
           ),

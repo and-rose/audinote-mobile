@@ -17,12 +17,20 @@ class MyApp extends StatelessWidget {
       title: 'Audinote',
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF124e78),
+          secondary: const Color(0XFF07A0C3),
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: const TextTheme(
           headline1: TextStyle(
             fontSize: 72.0,
             fontWeight: FontWeight.bold,
+          ),
+          headline5: TextStyle(
+            fontSize: 28.0,
+            fontWeight: FontWeight.w300,
+            fontFamily: 'Roboto',
           ),
           headline6: TextStyle(
             fontSize: 36.0,
@@ -72,7 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
       'fab': FloatingActionButton(
         onPressed: () => {debugPrint("FAB pressed")},
         tooltip: 'Upload Track',
-        shape: const CircleBorder(),
         child: const Icon(
           Icons.file_upload_outlined,
         ),
