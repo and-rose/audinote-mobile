@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/RecentTrackCard.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -46,14 +48,31 @@ class HomeScreen extends StatelessWidget {
         ),
         SliverList(
           delegate: SliverChildListDelegate([
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text("Recent", style: TextStyle(fontSize: 20)),
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text("Recent", style: TextStyle(fontSize: 20)),
+                    ),
+                    SizedBox(
+                      height: 80,
+                      child: ListView.separated(
+                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 15,
+                          separatorBuilder: (BuildContext context, int index) =>
+                              const Divider(),
+                          itemBuilder: (context, index) {
+                            return RecentTrackCard();
+                          }),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ]),
         ),
