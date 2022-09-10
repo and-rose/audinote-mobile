@@ -20,16 +20,27 @@ class TracksScreen extends StatelessWidget {
         SliverAppBar(
           surfaceTintColor: Theme.of(context).colorScheme.background,
           flexibleSpace: FlexibleSpaceBar(
-            background: const Image(
-              image: AssetImage("assets/wwwhirl.png"),
-              alignment: FractionalOffset(0.0, 0.7),
-              fit: BoxFit.cover,
+            background: ShaderMask(
+              shaderCallback: (rect) {
+                return const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.black, Colors.transparent],
+                ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+              },
+              blendMode: BlendMode.dstIn,
+              child: Image.asset(
+                "assets/wwwhirl.png",
+                alignment: const FractionalOffset(0.0, 0.7),
+                fit: BoxFit.cover,
+              ),
             ),
+            centerTitle: true,
+            title: Text("Tracks".toUpperCase(),
+                style: Theme.of(context).textTheme.headline6),
             titlePadding: const EdgeInsetsDirectional.only(
-              start: 16,
-              bottom: 5,
+              bottom: 2.0,
             ),
-            title: Text("Tracks", style: Theme.of(context).textTheme.headline5),
           ),
           actions: <Widget>[
             IconButton(

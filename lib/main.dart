@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF124e78),
+          seedColor: const Color(0xFF2469A3),
           secondary: const Color(0XFF07A0C3),
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -27,15 +27,10 @@ class MyApp extends StatelessWidget {
             fontSize: 72.0,
             fontWeight: FontWeight.bold,
           ),
-          headline5: TextStyle(
-            fontSize: 28.0,
-            fontWeight: FontWeight.w300,
-            fontFamily: 'Roboto',
-          ),
           headline6: TextStyle(
             fontSize: 36.0,
-            fontWeight: FontWeight.w300,
-            fontFamily: 'Roboto',
+            fontFamily: 'Newake',
+            color: Color(0xFF2469A3),
           ),
           bodyText2: TextStyle(
             fontSize: 14.0,
@@ -128,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: screens[currentPageIndex]['fab'],
     );
   }
