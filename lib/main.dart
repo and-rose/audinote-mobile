@@ -16,8 +16,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Audinote',
       theme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+            fontSize: 72.0,
+            fontWeight: FontWeight.bold,
+          ),
+          headline6: TextStyle(
+            fontSize: 36.0,
+            fontWeight: FontWeight.w300,
+            fontFamily: 'Roboto',
+          ),
+          bodyText2: TextStyle(
+            fontSize: 14.0,
+            fontFamily: 'Roboto',
+          ),
+        ),
         useMaterial3: true,
-        colorSchemeSeed: const Color(0xff6750a4),
       ),
       home: const MyHomePage(title: 'My Tracks'),
     );
@@ -54,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
       'fab': FloatingActionButton(
         onPressed: () => {debugPrint("FAB pressed")},
-        tooltip: 'Increment',
+        tooltip: 'Upload Track',
         shape: const CircleBorder(),
         child: const Icon(
           Icons.file_upload_outlined,
@@ -77,13 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(screens[currentPageIndex]['title']),
-        actions: screens[currentPageIndex]['actions'],
-      ),
       body: screens[currentPageIndex]['widget'],
       bottomNavigationBar: NavigationBar(
-        height: 70,
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
