@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -56,20 +57,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ? (ElevatedButton(
                           onPressed: () {
                             debugPrint(loggedIn.toString());
-                            Navigator.pushNamed(context, '/login');
                             setState(() {
                               loggedIn = false;
                             });
                           },
-                          child: const Text("Log In")))
+                          child: const Text("Log Out")))
                       : (ElevatedButton(
                           onPressed: () {
                             debugPrint(loggedIn.toString());
+                            Navigator.pushNamed(context, '/login');
                             setState(() {
                               loggedIn = true;
                             });
                           },
-                          child: const Text("Log Out")))
+                          child: const Text("Log In"))),
                 ],
               ),
             ),
